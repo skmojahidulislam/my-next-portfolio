@@ -26,10 +26,10 @@ jobs:
 
           - name: Build, tag, and push image to ECR
             env:
-              ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORIES }}
+              ECR_REPOSITORIES: ${{ secrets.ECR_REPOSITORIES }}
             run: |
-              docker build -t $ECR_REPOSITORIES:v1 .
-              docker push $ECR_REPOSITORIES:v1
+              docker build -t $ECR_REPOSITORIES:latest .
+              docker push $ECR_REPOSITORIES:latest
 
           - name: Force new ECS deployment
             run: |
